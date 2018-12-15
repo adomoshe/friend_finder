@@ -1,0 +1,20 @@
+{
+  "name": "friend_finder",
+  "version": "1.0.0",
+  "description": "Compatibility-based \"FriendFinder\" application. Takes results from users' surveys, then compare their answers with those from other users.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adomoshe/friend_finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adomoshe/friend_finder/issues"
+  },
+  "homepage": "https://github.com/adomoshe/friend_finder#readme"
+}
