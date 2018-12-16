@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/adomoshe/friend_finder/issues"
   },
-  "homepage": "https://github.com/adomoshe/friend_finder#readme"
+  "homepage": "https://github.com/adomoshe/friend_finder#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
