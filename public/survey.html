@@ -9,6 +9,10 @@
         crossorigin='anonymous'>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </head>
 <style>
     body {
@@ -19,6 +23,12 @@
     .card1 {
         margin-top: 4%;
         margin-bottom: 4%;
+    }
+
+    .match-image {
+        float: left;
+        height: 600px;
+        width: 520px;
     }
     
 </style>
@@ -55,7 +65,7 @@
                         <form>
                             <input type='text' placeholder='Bob Smith' id='name' class='form-control'>
                             <br>
-                            <h4>Link to Photo</h4>
+                            <h4>Web Link to Photo</h4>
                             <input type='text' placeholder='goo.gl/FjNWU6' id='photo' class='form-control'>
                             <hr>
                             <div class='form-group'>
@@ -86,7 +96,7 @@
 
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 3</h3>
-                                <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+                                <h4>You like to laugh.</h4>
                                 <select class='form-group' id='question3'>
                                     <option value=''>Choose Value</option>
                                     <option value='1'>1 (Strongly Disagree)</option>
@@ -99,7 +109,7 @@
 
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 4</h3>
-                                <h4>You rarely do something just out of sheer curiosity.</h4>
+                                <h4>You are spontaneous.</h4>
                                 <select class='form-group' id='question4'>
                                     <option value=''>Choose Value</option>
                                     <option value='1'>1 (Strongly Disagree)</option>
@@ -112,7 +122,7 @@
 
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 5</h3>
-                                <h4>People can rarely upset you.</h4>
+                                <h4>You enjoy classical music</h4>
                                 <select class='form-group' id='question5'>
                                     <option value=''>Choose Value</option>
                                     <option value='1'>1 (Strongly Disagree)</option>
@@ -125,7 +135,7 @@
 
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 6</h3>
-                                <h4>It is often difficult for you to relate to other people’s feelings.</h4>
+                                <h4>Cooking is your passion.</h4>
                                 <select class='form-group' id='question6'>
                                     <option value=''>Choose Value</option>
                                     <option value='1'>1 (Strongly Disagree)</option>
@@ -138,7 +148,7 @@
 
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 7</h3>
-                                <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+                                <h4>You enjoy travel.</h4>
                                 <select class='form-group' id='question7'>
                                     <option value=''>Choose Value</option>
                                     <option value='1'>1 (Strongly Disagree)</option>
@@ -151,7 +161,7 @@
 
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 8</h3>
-                                <h4>You rarely get carried away by fantasies and ideas.</h4>
+                                <h4>You are extroverted.</h4>
                                 <select class='form-group' id='question8'>
                                     <option value=''>Choose Value</option>
                                     <option value='1'>1 (Strongly Disagree)</option>
@@ -164,8 +174,7 @@
 
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 9</h3>
-                                <h4>You think that everyone’s views should be respected regardless of whether they are
-                                    supported by facts or not.</h4>
+                                <h4>You like to read.</h4>
                                 <select class='form-group' id='question9'>
                                     <option value=''>Choose Value</option>
                                     <option value='1'>1 (Strongly Disagree)</option>
@@ -178,7 +187,7 @@
 
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 10</h3>
-                                <h4>You feel more energetic after spending time with a group of people.</h4>
+                                <h4>Weekends are for fun.</h4>
                                 <select class='form-group' id='question10'>
                                     <option value=''>Choose Value</option>
                                     <option value='1'>1 (Strongly Disagree)</option>
@@ -190,9 +199,29 @@
                             </div>
                     </div>
                     <br>
-                    <button type='submit' class='btn btn-primary btn-lg' id='submitForm'>Submit</button>
+                    <button type='submit' class='btn btn-primary btn-lg' data-toggle="modal" data-target="#modal" id='submitForm'>Submit</button>
                     </form>
                 </div>
+
+                <div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Your New Friend!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id='modal-body1'>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </nav>
         </nav>
     </nav>
@@ -204,7 +233,7 @@
 </html>
 
 <script>
-let scores = []
+    let scores = []
 
     function scoresKey(value) {
         for (i = 1; i < 11; i++) {
@@ -217,7 +246,7 @@ let scores = []
         };
     };
 
-    $('#submitForm').on('click', function(event) {
+    $('#submitForm').on('click', function (event) {
         event.preventDefault();
         scoresKey('take');
         const newFriend = {
@@ -227,12 +256,25 @@ let scores = []
         };
         console.log(newFriend);
 
-        $.post('/api/friends', newFriend, function(data) {
+        $.post('/api/friends', newFriend, function (data) {
             $('#name').val('');
             $('#photo').val('');
             scoresKey('clear');
             scores = [];
-        });
+        }).then(
+            $.get('/api/friends/match', function (data) {
+                console.log(data)
+                let matchName = $('<h3>');
+                matchName.text(data[0].name);
+                $('#modal-body1').append(matchName);
+                let matchPic = $('<img>');
+                matchPic.attr('src', data[0].photo);
+                matchPic.attr('alt', 'Match-image');
+                matchPic.addClass('match-image');
+                $('#modal-body1').append(matchPic);
+                console.log(data[0].photo);
+            })
+        );
     });
 
 </script>

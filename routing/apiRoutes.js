@@ -1,13 +1,17 @@
 const friends = require("../app/data/friends");
 
-module.exports = function (app) {
+module.exports = function(app) {
 
-    app.get("/api/friends", function (req, res) {
-        res.json(friends);
+    app.get("/api/friends", function(req, res) {
+        res.json(friends.friends);
     });
 
-    app.post("/api/friends", function (req, res) {
-        friends.push(req.body);
+    app.get('/api/friends/match', function(req, res) {
+        res.json(friends.matchMaker());
+    });
+
+    app.post("/api/friends", function(req, res) {
+        friends.friends.push(req.body);
         res.json(true);
     });
 };
