@@ -16,7 +16,7 @@
 </head>
 <style>
     body {
-        background-image: url('images/friendsbg.jpg');
+        background-color: rgb(204, 219, 236);
         background-attachment: fixed;
     }
 
@@ -66,7 +66,7 @@
                             <input type='text' placeholder='Bob Smith' id='name' class='form-control'>
                             <br>
                             <h4>Web Link to Photo</h4>
-                            <input type='text' placeholder='goo.gl/FjNWU6' id='photo' class='form-control'>
+                            <input type='text' placeholder='www.img/url.com' id='photo' class='form-control'>
                             <hr>
                             <div class='form-group'>
                                 <h3 class='text-primary'>Question 1</h3>
@@ -199,7 +199,7 @@
                             </div>
                     </div>
                     <br>
-                    <button type='submit' class='btn btn-primary btn-lg' data-toggle="modal" data-target="#modal" id='submitForm'>Submit</button>
+                    <button type='submit' class='btn btn-primary btn-lg' id='submitForm'>Submit</button>
                     </form>
                 </div>
 
@@ -243,18 +243,35 @@
             if (value === 'clear') {
                 $(`#question${i}`).val('');
             };
+            if (value === 'validate') {
+                if ($(`#question${i}`).val() === '') {
+                    return i;
+                };
+            };
         };
+    };
+
+    function validate() {
+        try {
+            if (!$('#name').val().trim()) { throw 'enter a name' };
+            if (!$('#photo').val().trim()) { throw 'input a valid photo url' };
+            if (scoresKey('validate')) { throw `answer question ${i}`};
+        } catch (err) {
+            alert(`Please ${err}`);
+            return false;
+        };
+        return true;
     };
 
     $('#submitForm').on('click', function (event) {
         event.preventDefault();
+        if (!(validate())) { return; };
         scoresKey('take');
         const newFriend = {
             name: $('#name').val().trim(),
             photo: $('#photo').val().trim(),
             scores: scores
         };
-        console.log(newFriend);
 
         $.post('/api/friends', newFriend, function (data) {
             $('#name').val('');
@@ -263,7 +280,6 @@
             scores = [];
         }).then(
             $.get('/api/friends/match', function (data) {
-                console.log(data)
                 let matchName = $('<h3>');
                 matchName.text(data[0].name);
                 $('#modal-body1').append(matchName);
@@ -272,7 +288,7 @@
                 matchPic.attr('alt', 'Match-image');
                 matchPic.addClass('match-image');
                 $('#modal-body1').append(matchPic);
-                console.log(data[0].photo);
+                $('#modal').modal();
             })
         );
     });

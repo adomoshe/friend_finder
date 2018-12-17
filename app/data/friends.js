@@ -25,7 +25,6 @@ const friends = [
 module.exports = friends;
 
 let matchMaker = () => {
-    console.log('Friends: ', friends);
     let lastFriend = friends.slice(-1)
     const calcOne = [];
     let addition = 0;
@@ -38,16 +37,11 @@ let matchMaker = () => {
             addition += calcOne[x];
         };
         calcTwo.push(addition);
-        console.log('calcOne ', calcOne);
-        console.log('calcTwo ', calcTwo);
-        console.log('addition ' + addition);
         calcOne.length = 0;
         addition = 0;
     };
     let minIndex = calcTwo.indexOf(Math.min(...calcTwo));
-    console.log('minIndex: ', minIndex);
     const match = [{ name: friends[minIndex].name, photo: friends[minIndex].photo }];
-    console.log('match ', match);
     calcTwo.length = 0;
     return match;
 };
