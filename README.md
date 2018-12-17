@@ -1,6 +1,6 @@
 # friend_finder
 
-### Try out the [deployed app on Heroku!](https://boiling-mesa-36337.herokuapp.com/survey)
+### Try out the [deployed app on Heroku!](https://boiling-mesa-36337.herokuapp.com/)
 
 ### Compatibility-based "FriendFinder" application. Takes results from users' surveys, then compares their answers with those from other users to match compatible friends!
 
